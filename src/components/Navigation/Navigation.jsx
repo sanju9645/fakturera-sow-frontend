@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 import './Navigation.css';
 
@@ -72,6 +74,15 @@ const Navigation = () => {
           <a href="#" className="navbar-link">Our Customers</a>
           <a href="#" className="navbar-link">About Us</a>
           <a href="#" className="navbar-link">Contact Us</a>
+
+          <div className="navbar-language navbar-language-desktop">
+            <LanguageSelector />
+          </div>
+        </div>
+        <div className="navbar-right">
+          <div className="navbar-language navbar-language-mobile">
+            <LanguageSelector />
+          </div>
         </div>
       </nav>
 

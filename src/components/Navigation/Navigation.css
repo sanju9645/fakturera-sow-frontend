@@ -75,7 +75,7 @@
 .navbar-link {
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   transition: opacity 0.3s ease;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -84,6 +84,23 @@
 
 .navbar-link:hover {
   opacity: 0.8;
+}
+
+.navbar-language {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  display: none;
+}
+
+.navbar-language-mobile {
+  display: none;
+}
+
+.navbar-language-desktop {
+  display: flex;
 }
 
 /* Mobile Menu */
@@ -171,6 +188,19 @@
     display: none; /* Hide nav links, use hamburger menu */
   }
   
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-language-mobile {
+    display: flex;
+  }
+  
+  .navbar-language-desktop {
+    display: none;
+  }
+  
   .navbar-logo-image {
     width: 36px;
     height: 36px;
@@ -213,6 +243,19 @@
   .navbar-links {
     display: none;
   }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-language-mobile {
+    display: flex;
+  }
+  
+  .navbar-language-desktop {
+    display: none;
+  }
 
   .mobile-menu {
     top: 56px;
@@ -252,6 +295,19 @@
   .navbar-logo-image {
     width: 28px;
     height: 28px;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-language-mobile {
+    display: flex;
+  }
+  
+  .navbar-language-desktop {
+    display: none;
   }
 
   .mobile-menu {
