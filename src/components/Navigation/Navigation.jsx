@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import './Navigation.css'
+import './Navigation.css';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
