@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-left">
-          <span className="footer-text">123 Fakturera</span>
+          <span className="footer-text footer-text-left">123 Fakturera</span>
         </div>
 
         <div className="footer-right">
@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="footer-divider"></div>
       
       <div className="footer-center">
-        <span className="footer-text">© Lättfaktura, CRO no. 638537, 2025. All rights reserved.</span>
+        <span className="footer-text footer-text-center">© Lättfaktura, CRO no. 638537, 2025. All rights reserved.</span>
       </div>
     </footer>
   );
