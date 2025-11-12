@@ -8,7 +8,7 @@ const LanguageSelector = () => {
   const dropdownRef = useRef(null);
 
   const languages = [
-    { code: 'sv', name: 'Swedish', flag: '/images/flags/SE.png' },
+    { code: 'sv', name: 'Svenska', flag: '/images/flags/SE.png' },
     { code: 'en', name: 'English', flag: '/images/flags/GB.png' }
   ];
 

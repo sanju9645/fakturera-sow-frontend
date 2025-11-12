@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { translations } from '../../config/translations';
 
 import './Navigation.css';
 
 const Navigation = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -69,11 +72,11 @@ const Navigation = () => {
           </div>
         </div>
         <div className="navbar-links">
-          <a href="#" className="navbar-link">Home</a>
-          <a href="#" className="navbar-link">Order</a>
-          <a href="#" className="navbar-link">Our Customers</a>
-          <a href="#" className="navbar-link">About Us</a>
-          <a href="#" className="navbar-link">Contact Us</a>
+          <a href="#" className="navbar-link">{t.nav.home}</a>
+          <a href="#" className="navbar-link">{t.nav.order}</a>
+          <a href="#" className="navbar-link">{t.nav.ourCustomers}</a>
+          <a href="#" className="navbar-link">{t.nav.aboutUs}</a>
+          <a href="#" className="navbar-link">{t.nav.contactUs}</a>
 
           <div className="navbar-language navbar-language-desktop">
             <LanguageSelector />
@@ -99,19 +102,19 @@ const Navigation = () => {
       <div className={`mobile-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
         <div className="mobile-menu-content">
           <a href="#" className="mobile-menu-link" onClick={closeMenu}>
-            Home
+            {t.nav.home}
           </a>
           <a href="#" className="mobile-menu-link" onClick={closeMenu}>
-            Order
+            {t.nav.order}
           </a>
           <a href="#" className="mobile-menu-link" onClick={closeMenu}>
-            Our Customers
+            {t.nav.ourCustomers}
           </a>
           <a href="#" className="mobile-menu-link" onClick={closeMenu}>
-            About Us
+            {t.nav.aboutUs}
           </a>
           <a href="#" className="mobile-menu-link" onClick={closeMenu}>
-            Contact Us
+            {t.nav.contactUs}
           </a>
         </div>
       </div>
