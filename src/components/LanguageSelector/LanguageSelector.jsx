@@ -22,12 +22,9 @@ const LanguageSelector = () => {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  useEffect(() => {
-    console.log('Current language:', language);
-  }, [language]);
 
   const handleLanguageChange = (langCode) => {
     changeLanguage(langCode);

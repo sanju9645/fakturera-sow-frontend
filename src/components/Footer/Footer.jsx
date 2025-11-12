@@ -1,10 +1,9 @@
 import { useLanguage } from '../../context/LanguageContext.jsx';
-import { translations } from '../../config/translations.js';
 import './Footer.css';
 
 const Footer = () => {
-  const { language } = useLanguage();
-  const t = translations[language];
+  const { translations } = useLanguage();
+  const t = translations;
 
   return (
     <footer className="footer">
@@ -14,9 +13,9 @@ const Footer = () => {
         </div>
 
         <div className="footer-right">
-          <a href="#" className="footer-link">{t.nav.home}</a>
-          <a href="#" className="footer-link">{t.nav.order}</a>
-          <a href="#" className="footer-link">{t.nav.contactUs}</a>
+          <a href="#" className="footer-link">{t.nav?.home || 'Home'}</a>
+          <a href="#" className="footer-link">{t.nav?.order || 'Order'}</a>
+          <a href="#" className="footer-link">{t.nav?.contactUs || 'Contact Us'}</a>
         </div>
       </div>
       

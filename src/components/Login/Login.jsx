@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { translations } from '../../config/translations';
 import './Login.css';
 import ShowPasswordIcon from '../../../public/icons/show_password.png';
 import HidePasswordIcon from '../../../public/icons/hide_password.png';
 
 const Login = () => {
-  const { language } = useLanguage();
-  const t = translations[language];
+  const { translations } = useLanguage();
+  const t = translations;
   
   const [formData, setFormData] = useState({
     email: '',
@@ -31,18 +30,18 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1 className="login-form-title">{t.login.title}</h1>
+        <h1 className="login-form-title">{t.login?.title || 'Log in'}</h1>
         
         <div className="login-form-field">
           <label htmlFor="email" className="login-form-label">
-            {t.login.emailLabel}
+            {t.login?.emailLabel || 'Enter your email address'}
           </label>
           <input
             type="email"
             id="email"
             name="email"
             className="login-form-input"
-            placeholder={t.login.emailPlaceholder}
+            placeholder={t.login?.emailPlaceholder || 'Email address'}
             value={formData.email}
             onChange={handleChange}
             required
@@ -51,7 +50,7 @@ const Login = () => {
 
         <div className="login-form-field">
           <label htmlFor="password" className="login-form-label">
-            {t.login.passwordLabel}
+            {t.login?.passwordLabel || 'Enter your password'}
           </label>
           <div className="login-form-password-wrapper">
             <input
@@ -59,7 +58,7 @@ const Login = () => {
               id="password"
               name="password"
               className="login-form-input"
-              placeholder={t.login.passwordPlaceholder}
+              placeholder={t.login?.passwordPlaceholder || 'Password'}
               value={formData.password}
               onChange={handleChange}
               required
@@ -76,15 +75,15 @@ const Login = () => {
         </div>
 
         <button type="submit" className="login-form-submit">
-          {t.login.button}
+          {t.login?.button || 'Log in'}
         </button>
 
         <div className="login-form-links">
           <a href="#" className="login-form-link">
-            {t.login.register}
+            {t.login?.register || 'Register'}
           </a>
           <a href="#" className="login-form-link">
-            {t.login.forgottenPassword}
+            {t.login?.forgottenPassword || 'Forgotten password?'}
           </a>
         </div>
       </form>
