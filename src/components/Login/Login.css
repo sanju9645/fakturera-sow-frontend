@@ -181,7 +181,7 @@
   }
   
   .login-form-submit {
-    width: 60%;
+    width: 50%;
     padding: 15px;
     font-size: 17px;
   }
@@ -240,16 +240,17 @@
   }
   
   .login-form-submit {
-    width: 100%;
+    width: 50%;
     padding: 14px;
     font-size: 16px;
     border-radius: 30px;
   }
   
   .login-form-links {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 12px;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
     font-size: 14px;
   }
@@ -310,7 +311,7 @@
   }
   
   .login-form-submit {
-    width: 70%;
+    width: 50%;
     padding: 12px;
     font-size: 15px;
     border-radius: 30px;
@@ -320,7 +321,8 @@
   .login-form-links {
     margin-top: 16px;
     font-size: 13px;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 8px;
   }
   
@@ -377,14 +379,22 @@
   .login-form-submit {
     padding: 13px;
     font-size: 15px;
+    width: 50%;
   }
   
   .login-form-links {
     font-size: 13px;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
   }
 }
 
 .login-form-password-toggle-icon {
   height: 24px;
+}
+
+.login-form-links {
+  padding-left: 15%;
+  padding-right: 15%;
 }
