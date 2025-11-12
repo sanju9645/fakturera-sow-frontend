@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 180px;
+  padding: 30px 180px;
   position: relative;
 }
 
@@ -160,11 +160,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
   z-index: 150;
   opacity: 0;
   animation: fadeIn 0.3s ease forwards;
-  backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
 }
 
 
@@ -177,7 +177,7 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .navbar {
-    padding: 15px 30px;
+    padding: 50px 50px;
   }
   
   .navbar-hamburger {
@@ -207,7 +207,7 @@
   }
 
   .mobile-menu {
-    top: 65px;
+    top: 80px;
     left: 30px;
     width: 240px;
     max-height: calc(100vh - 85px);
@@ -222,7 +222,7 @@
 /* Mobile Portrait */
 @media (max-width: 768px) {
   .navbar {
-    padding: 12px 20px;
+    padding: 50px 50px;
   }
   
   .navbar-hamburger {
@@ -258,7 +258,7 @@
   }
 
   .mobile-menu {
-    top: 56px;
+    top: 80px;
     left: 20px;
     width: 220px;
     max-height: calc(100vh - 76px);
@@ -279,7 +279,7 @@
 /* Mobile Landscape */
 @media (max-width: 768px) and (orientation: landscape) {
   .navbar {
-    padding: 10px 20px;
+    padding: 50px 50px;
   }
   
   .navbar-hamburger {
@@ -311,7 +311,7 @@
   }
 
   .mobile-menu {
-    top: 48px;
+    top: 80px;
     left: 20px;
     width: 200px;
     max-height: calc(100vh - 68px);

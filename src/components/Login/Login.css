@@ -1,0 +1,350 @@
+.login-container {
+  margin-top: -5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-form {
+  background: white;
+  border-radius: 30px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease;
+  position: relative;
+  z-index: 1;
+  height: 25rem
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-form-title {
+  color: #ff0000;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.login-form-field {
+  margin-bottom: 24px;
+}
+
+.login-form-label {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.login-form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 2.75rem;
+}
+
+.login-form-input:focus {
+  outline: none;
+  /* border-color: #4caf50; */
+}
+
+.login-form-password-wrapper {
+  position: relative;
+}
+
+.login-form-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-submit {
+  width: 50%;
+  padding: 16px;
+  background: #07a31f;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  margin: 8px auto 0 auto;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.login-form-submit:hover {
+  background: #4caf50;
+}
+
+.login-form-submit:active {
+  transform: scale(0.98);
+}
+
+.login-form-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-form-link {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.login-form-link:hover {
+  color: #4caf50;
+}
+
+/* Desktop Large */
+@media (min-width: 1200px) {
+  .login-form {
+    max-width: 500px;
+    padding: 40px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .login-form {
+    max-width: 600px;
+    padding: 40px;
+  }
+  
+  .login-form-title {
+    font-size: 30px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-container {
+    padding: 20px;
+  }
+  
+  .login-form {
+    max-width: 500px;
+    padding: 35px;
+    margin-top: -20%;
+  }
+  
+  .login-form-title {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+  
+  .login-form-field {
+    margin-bottom: 22px;
+  }
+  
+  .login-form-input {
+    padding: 13px 15px;
+    height: 3.25rem;
+  }
+  
+  .login-form-submit {
+    width: 60%;
+    padding: 15px;
+    font-size: 17px;
+  }
+  
+  .login-form-links {
+    font-size: 15px;
+  }
+}
+
+/* Mobile - General (fallback for devices without orientation support) */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+    min-height: calc(100vh - 60px);
+  }
+  
+  .login-form {
+    padding: 30px 20px;
+    border-radius: 30px;
+    max-width: 100%;
+    margin-top: -60%;
+  }
+  
+  .login-form-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .login-form-field {
+    margin-bottom: 20px;
+  }
+  
+  .login-form-label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .login-form-input {
+    padding: 12px 14px;
+    font-size: 16px;
+    height: 3rem;
+    border-radius: 25px;
+  }
+  
+  .login-form-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+  
+  .login-form-links {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .login-form-password-toggle-icon {
+    height: 20px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  .login-container {
+    min-height: calc(100vh - 50px);
+    padding: 10px 15px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .login-form {
+    padding: 25px 20px;
+    max-width: 600px;
+    border-radius: 30px;
+  }
+  
+  .login-form-title {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  
+  .login-form-field {
+    margin-bottom: 14px;
+  }
+  
+  .login-form-label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  
+  .login-form-input {
+    padding: 10px 14px;
+    font-size: 15px;
+    height: 2.75rem;
+    border-radius: 25px;
+  }
+  
+  .login-form-submit {
+    width: 70%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 30px;
+    margin-top: 6px;
+  }
+  
+  .login-form-links {
+    margin-top: 16px;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .login-form-password-toggle-icon {
+    height: 18px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) and (orientation: portrait) {
+  .login-container {
+    padding: 10px;
+    min-height: calc(100vh - 50px);
+  }
+  
+  .login-form {
+    padding: 25px 15px;
+    border-radius: 30px;
+    margin-top: -60%;
+  }
+  
+  .login-form-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .login-form-field {
+    margin-bottom: 18px;
+  }
+  
+  .login-form-label {
+    font-size: 12px;
+  }
+  
+  .login-form-input {
+    padding: 11px 12px;
+    font-size: 15px;
+    height: 2.75rem;
+  }
+  
+  .login-form-submit {
+    padding: 13px;
+    font-size: 15px;
+  }
+  
+  .login-form-links {
+    font-size: 13px;
+    gap: 10px;
+  }
+}
+
+.login-form-password-toggle-icon {
+  height: 24px;
+}
