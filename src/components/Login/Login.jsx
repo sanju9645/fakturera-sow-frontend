@@ -1,30 +1,114 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import './Login.css';
 import ShowPasswordIcon from '../../../public/icons/show_password.png';
 import HidePasswordIcon from '../../../public/icons/hide_password.png';
+import { useAuth } from '../../context/AuthContext';
+import './Login.css';
 
 const Login = () => {
   const { translations } = useLanguage();
   const t = translations;
+  const { login } = useAuth();
+  const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const [errors, setErrors] = useState({
+    email: '',
+    password: ''
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      email: '',
+      password: ''
+    };
+    let isValid = true;
+
+    // Email validation
+    if (!formData.email) {
+      newErrors.email = 'Please enter a valid email address';
+      isValid = false;
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    // Password validation
+    if (!formData.password) {
+      newErrors.password = 'This field cannot be empty';
+      isValid = false;
+    } else if (formData.password.length < 4) {
+      newErrors.password = 'This field must be at least 4 characters long.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login attempt:', formData);
-    // TODO: Implement login logic
+
+    if (!validateForm()) {
+      return;
+    }
+    setIsSubmitting(true);
+    setErrors({ email: '', password: '' });
+
+    const result = await login(formData.email, formData.password);
+
+    if (result.success) {
+      navigate('/pricelist');
+    } else {
+      if (result.error === 'The user does not exist') {
+        setErrors({
+          email: 'The user does not exist',
+          password: ''
+        });
+      } else if (result.error === 'Invalid email or password') {
+        setErrors({
+          password: 'Invalid email or password',
+          email: ''
+        });
+      } else {
+        setErrors({
+          password: result.error || 'Login failed',
+          email: ''
+        });
+      }
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -40,12 +124,15 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
-            className="login-form-input"
+            className={`login-form-input ${errors.email ? 'login-form-input-error' : ''}`}
             placeholder={t.login?.emailPlaceholder || 'Email address'}
             value={formData.email}
             onChange={handleChange}
             required
           />
+          {errors.email && (
+            <div className="login-form-error">{errors.email}</div>
+          )}
         </div>
 
         <div className="login-form-field">
@@ -57,7 +144,7 @@ const Login = () => {
               type={showPassword ? 'text' : 'password'}
               id="password"
               name="password"
-              className="login-form-input"
+              className={`login-form-input ${errors.password ? 'login-form-input-error' : ''}`}
               placeholder={t.login?.passwordPlaceholder || 'Password'}
               value={formData.password}
               onChange={handleChange}
@@ -72,10 +159,13 @@ const Login = () => {
               {showPassword ? <img src={ShowPasswordIcon} className="login-form-password-toggle-icon" alt="Show password" /> : <img src={HidePasswordIcon} className="login-form-password-toggle-icon" alt="Hide password" />}
             </button>
           </div>
+          {errors.password && (
+            <div className="login-form-error">{errors.password}</div>
+          )}
         </div>
 
-        <button type="submit" className="login-form-submit">
-          {t.login?.button || 'Log in'}
+        <button type="submit" className="login-form-submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Logging in...' : (t?.login?.button || 'Log in')}
         </button>
 
         <div className="login-form-links">
@@ -92,4 +182,3 @@ const Login = () => {
 };
 
 export default Login;
-
