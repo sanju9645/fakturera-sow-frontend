@@ -3,6 +3,7 @@ import { useAuth } from './context/AuthContext.jsx';
 import Login from './components/Login/Login';
 import Pricelist from './pages/Pricelist/Pricelist.jsx';
 import NotFound from './pages/NotFound/NotFound.jsx';
+import Terms from './pages/Terms/Terms.jsx';
 
 // Protected Route Component
 const ProtectedRoute = () => {
@@ -31,6 +32,7 @@ const AppRoutes = () => {
     <Routes>
       <Route element={<PublicRoute />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/terms" element={<Terms />} />
       </Route>
 
       <Route element={<ProtectedRoute />}>

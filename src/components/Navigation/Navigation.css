@@ -177,7 +177,7 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .navbar {
-    padding: 50px 50px;
+    padding: 30px 50px;
   }
   
   .navbar-hamburger {
@@ -222,7 +222,7 @@
 /* Mobile Portrait */
 @media (max-width: 768px) {
   .navbar {
-    padding: 50px 50px;
+    padding: 30px 50px;
   }
   
   .navbar-hamburger {
@@ -279,7 +279,7 @@
 /* Mobile Landscape */
 @media (max-width: 768px) and (orientation: landscape) {
   .navbar {
-    padding: 50px 50px;
+    padding: 30px 50px;
   }
   
   .navbar-hamburger {
