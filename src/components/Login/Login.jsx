@@ -55,20 +55,17 @@ const Login = () => {
     let isValid = true;
 
     // Email validation
-    if (!formData.email) {
-      newErrors.email = 'Please enter a valid email address';
-      isValid = false;
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+    if (!formData.email || !validateEmail(formData.email)) {
+      newErrors.email =  t.login?.invalidEmailError || 'Please enter a valid email address';
       isValid = false;
     }
 
     // Password validation
     if (!formData.password) {
-      newErrors.password = 'This field cannot be empty';
+      newErrors.password = t.login?.invalidPasswordError || 'This field cannot be empty';
       isValid = false;
     } else if (formData.password.length < 4) {
-      newErrors.password = 'This field must be at least 4 characters long.';
+      newErrors.password = t.login?.passwordMinLengthError || 'This field must be at least 4 characters long.';
       isValid = false;
     }
 
@@ -92,7 +89,7 @@ const Login = () => {
     } else {
       if (result.error === 'The user does not exist') {
         setErrors({
-          email: 'The user does not exist',
+          email: t.login?.userNotFoundError || 'The user does not exist',
           password: ''
         });
       } else if (result.error === 'Invalid email or password') {
