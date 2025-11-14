@@ -10,6 +10,7 @@ export const API_ENDPOINTS = {
   translations: `${API_BASE_URL}/api/translations`,
   health: `${API_BASE_URL}/health`,
   login: `${API_BASE_URL}/api/auth/login`,
+  pricelist: `${API_BASE_URL}/api/pricelist`,
 };
 
 export default API_BASE_URL;
